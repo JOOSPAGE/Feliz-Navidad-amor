@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>My amorchitaaa♥️</title>
+  
+  <meta name="google-adsense-account" content="ca-pub-4704501585981299">
+  
+
+</head>
+
+
+<body>
+<!-- partial:index.partial.html -->
+<video id="video-bg" autoplay loop muted playsinline preload="metadata"
+style="position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-1;">
+	<source src="https://github.com/Baque2005/Organizador/raw/refs/heads/master/From%20KlickPin%20CF%20Ghim%20tr%C3%AAn%20Book%20art%20drawings.mp4" type="video/mp4">
+</video>
+<style>
+	@import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap);
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+body  {
+	font-family: "Quicksand", sans-serif;
+	background: linear-gradient(to bottom right, #b6f7c1, #eaffea, #c6f7e2);
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+	padding: 1rem;
+	margin-top: 50px;
+	overflow-x: hidden;
+	-webkit-tap-highlight-color: transparent;
+  }
+.envelope {
+	--duration: 1000ms;
+
+	--shadow-width: calc(var(--envelope-width) * 0.85);
+	--shadow-blur: 15px;
+
+	--envelope-width: 300px;
+	--envelope-height: 175px;
+	--envelope-clr-bg: #14532d;
+	--envelope-clr-bg-side: #14532d;
+	--envelope-clr-bg-bottom: #14532d;
+	--envelope-clr-bg-top: #14532d;
+	--envelope-clr-txt: #fff;
+
+	/*--envelope-transform: rotateY(0deg);*/
+	--envelope-transform-hover: rotateY(180deg);
+	--eople-rotate-delay: calc(var(--duration) / 1);
+	--eople-rotate-delay-hover: 0ms;
+
+	--letter-clr-bg: #fff;
+	--letter-clr-text: #c0392b;
+	--letter-font-size: 1rem;
+	--letter-delay: 0ms;
+	--letter-delay-hover: calc(
+		var(--duration) * 1.25
+	); /* delay before revealing card */
+
+	--letter-height: calc(var(--envelope-height) - 2rem);
+	--letter-height-hover: calc(var(--envelope-height) * 1.75);
+
+	--fold-rotate: rotateX(0deg);
+	/*--fold-zindex: 10;*/
+	--fold-zindex-hover: 0;
+	--fold-rotate-hover: rotateX(180deg);
+	--fold-delay: calc(var(--duration) / 2); /* delay before opening top section */
+	--fold-delay-hover: calc(var(--duration) * .75);
+
+	--front-font-size: 1rem;
+	--snowman-width: 50px;
+	--bells-width: 30px;
+
+	position: relative;
+	height: var(--envelope-height);
+	width: var(--envelope-width);
+	perspective: 1000px;
+	cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .envelope {
+    --duration: 600ms;
+    --letter-height-hover: calc(var(--envelope-height) * 1.05);
+
+    width: 90vw;
+    height: 55vw;
+    max-width: 300px;
+    max-height: 180px;
+
+    perspective: 800px;
+  }
+}
+
+
+
+/* shadow */
+.envelope::after {
+	content: "";
+	position: absolute;
+	top: 110%;
+	left: 50%;
+	width: var(--shadow-width);
+	height: 40px;
+	transition: var(--duration) ease-in-out;
+	transition-delay: var(--eople-rotate-delay);
+	transform: var(--shadow-transform);
+	translate: -50% 0;
+	border-radius: 50%;
+	background: rgba(56, 6, 6, 0.4);
+	filter: blur(var(--shadow-blur));
+}
+
+.envelope.active {
+	--envelope-transform: var(--envelope-transform-hover, 0deg);
+	--eople-rotate-delay: var(--eople-rotate-delay-hover);
+	--shadow-transform: rotateY(180deg);
+	--fold-rotate: var(--fold-rotate-hover);
+	--fold-delay: var(--fold-delay-hover);
+	--fold-zindex: var(--fold-zindex-hover);
+	--letter-height: var(--letter-height-hover);
+	--letter-delay: var(--letter-delay-hover);
+}
+
+.envelope-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	transition: var(--duration) ease-in-out;
+	transition-delay: var(--eople-rotate-delay);
+	transform-style: preserve-3d;
+	transform: var(--envelope-transform);
+	display: grid;
+}
+
+.envelope-front,
+.envelope-back {
+	position: relative;
+	grid-area: 1/1;
+	width: 100%;
+	height: 100%;
+	background-color: var(--envelope-clr-bg);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	perspective: 1000px;
+	isolation: isolate;
+	overflow: visible;
+}
+
+.envelope-front {
+	color: var(--envelope-clr-txt);
+	display: grid;
+	place-content: center;
+}
+.envelope-front .postage-stamp {
+	position: absolute;
+	top: 1em;
+	right: 0.5em;
+	width: 15%;
+}
+.envelope-front .address {
+	text-align: left;
+	font-size: var(--front-font-size);
+}
+.envelope-front .address > p > span:first-child {
+	font-family: system-ui;
+	font-weight: 200;
+}
+.envelope-front .address > p > span:last-of-type {
+	font-weight: 800;
+}
+
+.envelope-back {
+	/* start with back rotated*/
+	transform: rotateY(180deg);
+}
+/* back folds */
+.envelope-back::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	background-image: conic-gradient(
+		transparent 60deg,
+		var(--envelope-clr-bg-side) 60deg 120deg,
+		var(--envelope-clr-bg-bottom) 120deg 240deg,
+		var(--envelope-clr-bg-side) 240deg 300deg,
+		transparent 300deg
+	);
+}
+/* top fold which folds up on hover */
+.envelope-back .top-fold {
+	position: absolute;
+	inset: 0;
+	z-index: var(--fold-zindex, 10);
+	background-color: var(--envelope-clr-bg-top);
+	clip-path: polygon(0% 0%, 50% 55%, 100% 0%);
+
+	transform: var(--fold-rotate);
+	transform-origin: top;
+	transition: var(--duration) ease-in-out;
+	transition-delay: var(--fold-delay);
+}
+
+.letter {
+	position: absolute;
+	bottom: 5px;
+	left: 50%;
+	width: 90%;
+	height: var(--letter-height);
+	font-size: var(--letter-font-size);
+	transform: translateX(-50%);
+	background: var(--letter-clr-bg);
+	z-index: 2;
+	padding: 2em 3em;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+	text-align: center;
+	transition: var(--duration) ease-in-out;
+	transition-delay: var(--letter-delay);
+	overflow: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+.letter > svg.snowman {
+	width: var(--snowman-width);
+}
+.letter svg.bells {
+	width: var(--bells-width);
+	color: orange;
+}
+.letter p {
+	margin: 0;
+	font-weight: bold;
+	width: 32ch;
+	color: var(--letter-clr-text);
+}
+
+.custom-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain; 
+}
+.custom-image2 {
+    width: 150px;
+    height: 150px;
+    object-fit: contain; 
+}
+
+.highlight {
+    display: block; 
+    margin-top: 10px; 
+    font-size: 1.8rem;  
+    font-weight: bold; 
+}
+
+.modal-carta {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0,0,0,0.5);
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+	pointer-events: none;
+}
+.modal-carta.active {
+	display: flex;
+	opacity: 1;
+	transition: opacity 0.5s ease;
+	pointer-events: auto;
+}
+.modal-content {
+	background: #fff;
+	padding: 2rem;
+	border-radius: 16px;
+	box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+	text-align: center;
+	position: relative;
+	transform: scale(0.8);
+	opacity: 0;
+	transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.4s;
+}
+.modal-carta.active .modal-content {
+	transform: scale(1);
+	opacity: 1;
+	transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.4s;
+}
+.close-modal {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 2rem;
+	cursor: pointer;
+	color: #c0392b;
+	font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  #video-bg {
+    filter: brightness(0.85);
+  }
+}
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+    margin-top: 0;
+  }
+
+  .letter {
+    padding: 1.2em;
+    font-size: 0.9rem;
+  }
+
+  .letter p {
+    width: 100%;
+  }
+
+  .custom-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .custom-image2 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .highlight {
+    font-size: 1.4rem;
+  }
+}
+@media (hover: none) {
+  .envelope {
+    --duration: 600ms;
+  }
+}
+@media (max-width: 480px) {
+  .modal-content {
+    width: 90vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .envelope {
+    max-width: 300px;
+    max-height: 180px;
+  }
+
+  .letter {
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+
+}
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  padding: 8px 12px;
+  border-radius: 20px;
+  max-width: 360px;
+  gap: 12px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.album-art {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px #1DB954;
+}
+
+.song-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.song-title {
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.artist-name {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #b3b3b3;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#audio {
+  display: none;
+}
+
+#playPauseBtn {
+  background: #1DB954;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(29, 185, 84, 0.8);
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+#playPauseBtn:hover {
+  background: #1ed760;
+}
+
+.audio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* ocupa toda la altura disponible */
+  width: 100%;
+}
+
+
+
+</style>
+<div class="envelope" id="envelope">
+
+	<div class="envelope-inner">
+
+		<div class="envelope-front">
+			<div class="postage-stamp">
+				<img src="bunnys.webp" alt="stamp" style="width:100%;height:auto;border-radius:8px;">
+			</div>
+
+			<div class="address">
+				<p><span>Para:</span> <span>Jenifer♥️</span></p>
+				<p><span>De:</span> <span>Axel🐰</span></p>
+				
+			</div>
+
+		</div>
+
+		<div class="envelope-back">
+			<div class="top-fold"></div>
+
+			<div class="letter">
+
+				
+				<img src="https://i.pinimg.com/736x/f7/df/e8/f7dfe8995386f26836ff6924c37baccd.jpg" alt="love1" class="custom-image">
+			
+				<p>Feliz Navidad Amorshitaaaaa<span class="highlight">Te Amo mi amor!</span></p>
+				<p style="color:#c0392b;font-size:1.2rem;margin-top:10px;">Gracias por aparecer en mi vida Jenifer lo mejor de esta navidad sin duda alguna eres tu. Te amo con todo mi corazon, feliz navidad amorshitaaa</p>
+			
+				
+				<img src="https://i.pinimg.com/736x/14/50/bf/1450bf55f5b06d73f5428d3ba5519583.jpg" alt="love2" class="custom-image2">
+			
+			</div>
+			
+		</div>
+	</div>
+
+</div>
+<img src="mundo.png" alt="mexico" style="width:10%;height:auto;border-radius:8px;">
+<p>♥️</p>
+<img src="peru.png" alt="peru" style="width:10%;height:auto;border-radius:8px;">
+<!-- Modal oculto -->
+<div id="modalCarta" class="modal-carta">
+	<div class="modal-content">
+		<span class="close-modal" id="closeModal">&times;</span>
+		<!-- Contenido de la tarjeta (puedes personalizarlo) -->
+		<img src="https://i.pinimg.com/736x/f7/df/e8/f7dfe8995386f26836ff6924c37baccd.jpg" alt="love1" class="custom-image">
+		<p>Feliz Navidad Amorshitaaaaa<span class="highlight">Te Amo mi amor!</span></p>
+		<p style="color:#c0392b;font-size:1.2rem;margin-top:10px;">Gracias por aparecer en mi vida Jenifer lo mejor de esta navidad sin duda alguna eres tu. Te amo con todo mi corazon, feliz navidad amorshitaaa para toda tu familia y especialmente para ti eres lo que mi corazon siempre busco♥️</p>
+		<p style="color:#c0392b;font-size:1.2rem;margin-top:10px;">Nunca dudes que no me mereces, mi mayor felicidad es tenerte conmigo no tienes competencia alguna mi corazon ya te escogio a ti te amo conejita hermosa♥️</p>
+		<p>Reproduce el audio♥️</p>
+		<div class="audio-container">
+  <div class="audio-player">
+  <img src="Corazon.jpeg" alt="Portada" class="album-art">
+  <div class="song-info">
+    <div class="song-title">Feliz navidad mi amor</div>
+    <div class="artist-name">De Axel</div>
+  </div>
+  <button id="playPauseBtn" aria-label="Play/Pause">
+    <svg id="playIcon" xmlns="http://www.w3.org/2000/svg" fill="white" height="28" viewBox="0 0 24 24" width="28"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" fill="white" height="28" viewBox="0 0 24 24" width="28" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+  </button>
+  <audio id="audio" src="Te-amo-mi-amor.mp3"></audio>
+</div>
+</div>
+	</div>
+
+</div>
+<!-- partial -->
+ 
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4704501585981299"
+     crossorigin="anonymous"></script>
+
+<script>
+	document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+  
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'F12') {
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key === 'u') {
+      e.preventDefault();
+    }
+  });
+
+	// Animación solo al hacer click
+	document.getElementById('envelope').addEventListener('click', function () {
+		this.classList.toggle('active');
+		setTimeout(function() {
+			document.getElementById('modalCarta').classList.add('active');
+		}, 2500);
+	});
+
+	document.getElementById('closeModal').addEventListener('click', function () {
+		document.getElementById('modalCarta').classList.remove('active');
+		document.getElementById('envelope').classList.remove('active'); // Restablece la carta
+	});
+
+	document.getElementById('modalCarta').addEventListener('click', function(e) {
+		if (e.target === this) {
+			this.classList.remove('active');
+			document.getElementById('envelope').classList.remove('active'); // Restablece la carta
+		}
+	});
+
+const audio = document.getElementById('audio');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const playIcon = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
+
+playPauseBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+});
+
+audio.addEventListener('play', () => {
+  playIcon.style.display = 'none';
+  pauseIcon.style.display = 'inline';
+});
+
+audio.addEventListener('pause', () => {
+  playIcon.style.display = 'inline';
+  pauseIcon.style.display = 'none';
+});
+
+audio.addEventListener('ended', () => {
+  playIcon.style.display = 'inline';
+  pauseIcon.style.display = 'none';
+});
+
+
+
+</script>
+
+  
+
+</body>
+</html>
